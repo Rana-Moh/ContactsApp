@@ -18,6 +18,7 @@
 		251D5DE71EB4972D00FD56A2 /* AllContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D5DE61EB4972D00FD56A2 /* AllContactsTableViewController.m */; };
 		251D5DEB1EB498A200FD56A2 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D5DEA1EB498A200FD56A2 /* RegisterViewController.m */; };
 		251D5DEE1EB4A40C00FD56A2 /* AddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D5DED1EB4A40C00FD56A2 /* AddContactViewController.m */; };
+		259721381EB631A40085CD64 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 259721371EB631A40085CD64 /* Contact.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		251D5DEA1EB498A200FD56A2 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		251D5DEC1EB4A40C00FD56A2 /* AddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactViewController.h; sourceTree = "<group>"; };
 		251D5DED1EB4A40C00FD56A2 /* AddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactViewController.m; sourceTree = "<group>"; };
+		259721361EB631A40085CD64 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		259721371EB631A40085CD64 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 		251D5DA51EB48AC300FD56A2 = {
 			isa = PBXGroup;
 			children = (
+				259721361EB631A40085CD64 /* Contact.h */,
+				259721371EB631A40085CD64 /* Contact.m */,
 				251D5DB01EB48AC300FD56A2 /* ContactsApp */,
 				251D5DCA1EB48AC300FD56A2 /* ContactsAppTests */,
 				251D5DD51EB48AC300FD56A2 /* ContactsAppUITests */,
@@ -110,13 +115,12 @@
 		251D5DB01EB48AC300FD56A2 /* ContactsApp */ = {
 			isa = PBXGroup;
 			children = (
+				25B7A1071EB5EC490086FC73 /* LoginViewController */,
 				251D5DEF1EB4A41400FD56A2 /* AddContactViewController */,
 				251D5DE81EB4988600FD56A2 /* RegisterViewController */,
 				251D5DE41EB496FA00FD56A2 /* AllContactsTableViewController */,
 				251D5DB41EB48AC300FD56A2 /* AppDelegate.h */,
 				251D5DB51EB48AC300FD56A2 /* AppDelegate.m */,
-				251D5DB71EB48AC300FD56A2 /* ViewController.h */,
-				251D5DB81EB48AC300FD56A2 /* ViewController.m */,
 				251D5DBA1EB48AC300FD56A2 /* Main.storyboard */,
 				251D5DBD1EB48AC300FD56A2 /* Assets.xcassets */,
 				251D5DBF1EB48AC300FD56A2 /* LaunchScreen.storyboard */,
@@ -177,6 +181,15 @@
 				251D5DED1EB4A40C00FD56A2 /* AddContactViewController.m */,
 			);
 			name = AddContactViewController;
+			sourceTree = "<group>";
+		};
+		25B7A1071EB5EC490086FC73 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				251D5DB71EB48AC300FD56A2 /* ViewController.h */,
+				251D5DB81EB48AC300FD56A2 /* ViewController.m */,
+			);
+			name = LoginViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +326,7 @@
 				251D5DEE1EB4A40C00FD56A2 /* AddContactViewController.m in Sources */,
 				251D5DE71EB4972D00FD56A2 /* AllContactsTableViewController.m in Sources */,
 				251D5DB91EB48AC300FD56A2 /* ViewController.m in Sources */,
+				259721381EB631A40085CD64 /* Contact.m in Sources */,
 				251D5DB61EB48AC300FD56A2 /* AppDelegate.m in Sources */,
 				251D5DB31EB48AC300FD56A2 /* main.m in Sources */,
 			);
@@ -538,6 +552,7 @@
 				251D5DDD1EB48AC300FD56A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		251D5DDE1EB48AC300FD56A2 /* Build configuration list for PBXNativeTarget "ContactsAppTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +561,7 @@
 				251D5DE01EB48AC300FD56A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		251D5DE11EB48AC300FD56A2 /* Build configuration list for PBXNativeTarget "ContactsAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +570,7 @@
 				251D5DE31EB48AC300FD56A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
