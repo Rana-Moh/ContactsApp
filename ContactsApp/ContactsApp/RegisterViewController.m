@@ -37,9 +37,13 @@
     con.phone = [_phoneTxt text];
     con.pass = [_passTxt text];
     con.gender = [_genderSegment titleForSegmentAtIndex:_genderSegment.selectedSegmentIndex];
-        NSString *jsonString = [NSString stringWithFormat:@"{\"email\":\"%@\",\"firstname\":\"%@\", \"lastname\":\"%@\", \"pass\":\"%@\", \"phone\":\"%@\", \"gender\":\"%@\"}", con.email, con.firstname, con.lastname, con.pass, con.phone, con.gender];
+    NSString *jsonString = [NSString stringWithFormat:@"{\"email\":\"%@\",\"firstname\":\"%@\", \"lastname\":\"%@\", \"pass\":\"%@\", \"phone\":\"%@\", \"gender\":\"%@\"}", con.email, con.firstname, con.lastname, con.pass, con.phone, con.gender];
     
-    NSString *urlString = [[NSString alloc] initWithFormat:@"http://192.168.1.3:8084/ContactsBackEnd/rest/ContactService/register/%@", jsonString];
+    NSString *EncoadedJson = [jsonString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
+    
+    NSString *urlString = [[NSString alloc] initWithFormat:@"http://192.168.1.13:8084/ContactsBackEnd/rest/ContactService/register/%@", EncoadedJson];
+    
+    NSLog(@"URL: %@", EncoadedJson);
     
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -67,19 +71,20 @@
     
     NSLog(@"RESPONSE FROM SERVICE IS: %@", jsonDataRes);
     
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonDataRes options:0 error:nil];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonDataRes options:0 error:nil];
     
-        NSString *status = [dict objectForKey:@"status"];
-        UIAlertView *myAlert;
+    NSString *status = [dict objectForKey:@"status"];
+    UIAlertView *myAlert;
     
-        if ([status  isEqual: @"SUCCESS"]) {
-            myAlert = [[UIAlertView alloc] initWithTitle:@"Register Success" message:status delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        }
-        else{
-            myAlert = [[UIAlertView alloc] initWithTitle:@"Register Failure" message:status delegate:self cancelButtonTitle:@"Try Again" otherButtonTitles: nil];
-        }
+    if ([status  isEqual: @"success"]) {
+        myAlert = [[UIAlertView alloc] initWithTitle:@"Register Success" message:status delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+        myAlert = [[UIAlertView alloc] initWithTitle:@"Register Failure" message:status delegate:self cancelButtonTitle:@"Try Again" otherButtonTitles: nil];
+    }
     
-        [myAlert show];
+    [myAlert show];
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
