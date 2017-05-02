@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AllContactsTableViewController.h"
 
 @interface ViewController ()
 
@@ -28,13 +29,15 @@
 
 - (IBAction)loginBtnAction:(id)sender {
     
-    NSString *urlString = [[NSString alloc] initWithFormat:@"http://192.168.1.3:8084/ContactsBackEnd/rest/Calculator/add/2/3"];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"http://192.168.1.13:8084/ContactsBackEnd/rest/ContactService/login/%@/%@", _emailTxt.text, _passTxt.text];
     
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
     [conn start];
+    
     [_emailTxt resignFirstResponder];
     [_passTxt resignFirstResponder];
 }
@@ -52,22 +55,28 @@
 }
 
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection{
+    NSLog(@"RESPONSE FROM SERVICE");
     
-    NSLog(@"RESPONSE FROM SERVICE IS: %@", jsonData);
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     
-//    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-//    
-//    NSString *status = [dict objectForKey:@"status"];
-//    UIAlertView *myAlert;
-//    
-//    if ([status  isEqual: @"SUCCESS"]) {
-//        //redirect to all contacts
-//    }
-//    else{
-//        myAlert = [[UIAlertView alloc] initWithTitle:@"Login Failure" message:status delegate:self cancelButtonTitle:@"Try Again" otherButtonTitles: nil];
-//    }
-//    
-//    [myAlert show];
+    NSString *result = [dict objectForKey:@"result"];
+    UIAlertView *myAlert;
+    
+    if ([result  isEqual: @"fail"]) {
+        myAlert = [[UIAlertView alloc] initWithTitle:@"Login Failed" message:result delegate:self cancelButtonTitle:@"Retry" otherButtonTitles: nil];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+        NSString *userJson = result;
+        //store user details from json in ns defaults
+        
+        //redirect to list
+        AllContactsTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"allContactsView"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    [myAlert show];
+
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

@@ -69,7 +69,7 @@
 
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection{
     
-    NSLog(@"RESPONSE FROM SERVICE IS: %@", jsonDataRes);
+    //NSLog(@"RESPONSE FROM SERVICE IS: %@", jsonDataRes);
     
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonDataRes options:0 error:nil];
     
