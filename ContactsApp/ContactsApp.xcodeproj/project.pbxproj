@@ -19,6 +19,9 @@
 		251D5DEB1EB498A200FD56A2 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D5DEA1EB498A200FD56A2 /* RegisterViewController.m */; };
 		251D5DEE1EB4A40C00FD56A2 /* AddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D5DED1EB4A40C00FD56A2 /* AddContactViewController.m */; };
 		259721381EB631A40085CD64 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 259721371EB631A40085CD64 /* Contact.m */; };
+		CC2075CF1EBD20F100AC7D37 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2075CE1EBD20F100AC7D37 /* ProfileViewController.m */; };
+		CC2075D31EBD414400AC7D37 /* male.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2075D11EBD414400AC7D37 /* male.png */; };
+		CC2075D41EBD414400AC7D37 /* female.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2075D21EBD414400AC7D37 /* female.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,10 @@
 		251D5DED1EB4A40C00FD56A2 /* AddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactViewController.m; sourceTree = "<group>"; };
 		259721361EB631A40085CD64 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		259721371EB631A40085CD64 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		CC2075CD1EBD20F100AC7D37 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		CC2075CE1EBD20F100AC7D37 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		CC2075D11EBD414400AC7D37 /* male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = male.png; path = ../../../Downloads/male.png; sourceTree = "<group>"; };
+		CC2075D21EBD414400AC7D37 /* female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = female.png; path = ../../../Downloads/female.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +100,8 @@
 		251D5DA51EB48AC300FD56A2 = {
 			isa = PBXGroup;
 			children = (
+				CC2075D01EBD413600AC7D37 /* images */,
+				CC2075CC1EBD207C00AC7D37 /* ProfileViewController */,
 				259721361EB631A40085CD64 /* Contact.h */,
 				259721371EB631A40085CD64 /* Contact.m */,
 				251D5DB01EB48AC300FD56A2 /* ContactsApp */,
@@ -190,6 +199,24 @@
 				251D5DB81EB48AC300FD56A2 /* ViewController.m */,
 			);
 			name = LoginViewController;
+			sourceTree = "<group>";
+		};
+		CC2075CC1EBD207C00AC7D37 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CC2075CD1EBD20F100AC7D37 /* ProfileViewController.h */,
+				CC2075CE1EBD20F100AC7D37 /* ProfileViewController.m */,
+			);
+			name = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		CC2075D01EBD413600AC7D37 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CC2075D11EBD414400AC7D37 /* male.png */,
+				CC2075D21EBD414400AC7D37 /* female.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +324,8 @@
 			files = (
 				251D5DC11EB48AC300FD56A2 /* LaunchScreen.storyboard in Resources */,
 				251D5DBE1EB48AC300FD56A2 /* Assets.xcassets in Resources */,
+				CC2075D41EBD414400AC7D37 /* female.png in Resources */,
+				CC2075D31EBD414400AC7D37 /* male.png in Resources */,
 				251D5DBC1EB48AC300FD56A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +353,7 @@
 			files = (
 				251D5DEB1EB498A200FD56A2 /* RegisterViewController.m in Sources */,
 				251D5DEE1EB4A40C00FD56A2 /* AddContactViewController.m in Sources */,
+				CC2075CF1EBD20F100AC7D37 /* ProfileViewController.m in Sources */,
 				251D5DE71EB4972D00FD56A2 /* AllContactsTableViewController.m in Sources */,
 				251D5DB91EB48AC300FD56A2 /* ViewController.m in Sources */,
 				259721381EB631A40085CD64 /* Contact.m in Sources */,

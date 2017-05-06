@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddContactViewController : UIViewController
+@interface AddContactViewController : UIViewController <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *friendEmailTxt;
+- (IBAction)addFriend:(id)sender;
 
 @end
