@@ -18,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _editProfileBtnOutlet.hidden = YES;
+    
     NSData *userDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"contact"];
     Contact *contact=[NSKeyedUnarchiver unarchiveObjectWithData:userDate];
     
@@ -30,13 +33,13 @@
     
     if([contact.gender isEqualToString:@"Male"]){
         _profileGender.selectedSegmentIndex=0;
-        _profileImageView.image=[UIImage imageNamed:@"male"];
+        //_profileImageView.image=[UIImage imageNamed:@"male"];
     
     }
     else {
         
         _profileGender.selectedSegmentIndex=1;
-        _profileImageView.image=[UIImage imageNamed:@"female"];
+        //_profileImageView.image=[UIImage imageNamed:@"female"];
 
     }
     
@@ -72,7 +75,7 @@
     
     NSString *EncoadedJson = [jsonString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     
-    NSString *urlString = [[NSString alloc] initWithFormat:@"http://192.168.137.150:8080/ContactsBackEnd/rest/ContactService/updateContact/%@", EncoadedJson];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"http://10.142.0.183:8084/ContactsBackEnd/rest/ContactService/updateContact/%@", EncoadedJson];
     
     NSLog(@"URL: %@", EncoadedJson);
     
@@ -82,11 +85,56 @@
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [conn start];
     
+    _editProfileBtnOutlet.hidden = YES;
+    _profileFirstName.enabled = NO;
+    _profileLastName.enabled = YES;
+    _profilePhone.enabled = NO;
+    _profileEmail.enabled = NO;
+    _profilePassword.enabled = NO;
+    _profileGender.enabled = NO;
+    
+    Contact *contact = [[Contact alloc]init];
+    
+    
+    contact.firstname = _profileFirstName.text;
+    contact.lastname = _profileLastName.text;
+    contact.email = _profileEmail.text;
+    contact.pass = _profilePassword.text;
+    contact.gender = [_profileGender titleForSegmentAtIndex:_profileGender.selectedSegmentIndex];
+    contact.phone = _profilePhone.text;
+    
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:contact];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:data forKey:@"contact"];
+    
     [_profileFirstName resignFirstResponder];
     [_profileLastName resignFirstResponder];
     [_profilePassword resignFirstResponder];
     [_profileGender resignFirstResponder];
     [_profilePhone resignFirstResponder];
     [_profileEmail resignFirstResponder];
+}
+
+- (IBAction)enableEditAction:(id)sender {
+    
+    if (_editProfileBtnOutlet.isHidden) {
+        _editProfileBtnOutlet.hidden = NO;
+        _profileFirstName.enabled = YES;
+        _profileLastName.enabled = YES;
+        _profilePhone.enabled = YES;
+        _profileEmail.enabled = YES;
+        _profilePassword.enabled = YES;
+        _profileGender.enabled = YES;
+    }
+    else{
+        _editProfileBtnOutlet.hidden = YES;
+        _profileFirstName.enabled = NO;
+        _profileLastName.enabled = YES;
+        _profilePhone.enabled = NO;
+        _profileEmail.enabled = NO;
+        _profilePassword.enabled = NO;
+        _profileGender.enabled = NO;
+    }
 }
 @end

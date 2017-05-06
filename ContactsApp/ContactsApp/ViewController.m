@@ -30,7 +30,7 @@
 
 - (IBAction)loginBtnAction:(id)sender {
     
-    NSString *urlString = [[NSString alloc] initWithFormat:@"http://192.168.137.150:8080/ContactsBackEnd/rest/ContactService/login/%@/%@", _emailTxt.text, _passTxt.text];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"http://10.142.0.183:8084/ContactsBackEnd/rest/ContactService/login/%@/%@", _emailTxt.text, _passTxt.text];
     
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

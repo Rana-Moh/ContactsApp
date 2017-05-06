@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *profilePhone;
 
 - (IBAction)editProfileAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *editProfileBtnOutlet;
 
+- (IBAction)enableEditAction:(id)sender;
 
 @end
