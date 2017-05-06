@@ -41,7 +41,7 @@
     
     NSString *EncoadedJson = [jsonString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     
-    NSString *urlString = [[NSString alloc] initWithFormat:@"http://192.168.1.13:8084/ContactsBackEnd/rest/ContactService/register/%@", EncoadedJson];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"http://192.168.137.150:8080/ContactsBackEnd/rest/ContactService/register/%@", EncoadedJson];
     
     NSLog(@"URL: %@", EncoadedJson);
     
